@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MangaDO · Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #faf7f2; color: #2a2c2e; line-height: 1.5; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        
+        .navbar {
+            position: sticky; top: 0; background: rgba(250, 247, 242, 0.85); backdrop-filter: blur(12px);
+            border-bottom: 1px solid #eedac8; z-index: 100;
+        }
+        .nav-container {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 2rem; max-width: 1280px; margin: 0 auto;
+        }
+        .logo a {
+            font-size: 1.9rem; font-weight: 700; text-decoration: none;
+            background: linear-gradient(145deg, #b25030, #7a3e2a); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-family: 'Noto Serif JP', serif;
+        }
+        .nav-links { display: flex; gap: 2.8rem; }
+        .nav-links a {
+            text-decoration: none; font-weight: 500; color: #4d3b30; transition: color 0.2s;
+            border-bottom: 2px solid transparent; padding-bottom: 4px;
+        }
+        .nav-links a:hover { color: #c4451e; border-bottom-color: #c4451e; }
+        .nav-links a.active { color: #b25030; border-bottom-color: #b25030; }
+        
+        section { padding: 5rem 0; }
+        .section-title {
+            font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: #2c1f18;
+            font-family: 'Noto Serif JP', serif;
+        }
+        .section-sub { font-size: 1.12rem; color: #6f5b4b; max-width: 680px; margin-bottom: 3rem; }
+        
+        .contact-wrapper {
+            display: flex; flex-wrap: wrap; gap: 3rem; background: #fffcf5; border-radius: 3rem;
+            padding: 3rem; border: 1px solid #e7cfbb;
+        }
+        .contact-info { flex: 1 1 250px; }
+        .contact-info h3 { font-size: 2rem; margin-bottom: 1rem; font-family: 'Noto Serif JP', serif; }
+        .contact-info p { color: #5e4a3a; margin-bottom: 2rem; }
+        .contact-detail {
+            display: flex; align-items: center; gap: 1rem; margin-bottom: 1.4rem;
+        }
+        .contact-detail i {
+            width: 40px; height: 40px; background: #f3d7c2; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: #b25030;
+        }
+        .contact-form { flex: 2 1 380px; }
+        .form-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.3rem; }
+        .form-group { flex: 1 1 200px; }
+        input, textarea {
+            width: 100%; padding: 1rem 1.2rem; border: 1.5px solid #decbb8; border-radius: 40px;
+            font-family: 'Inter', sans-serif; font-size: 1rem; background: #fffdf9;
+        }
+        input:focus, textarea:focus {
+            outline: none; border-color: #c4451e; box-shadow: 0 0 0 4px #fcdac8;
+        }
+        textarea { border-radius: 30px; }
+        .btn-submit {
+            background: #b25030; color: white; border: none; padding: 1rem 2.8rem;
+            border-radius: 60px; font-weight: 600; font-size: 1rem; cursor: pointer;
+            transition: 0.2s; margin-top: 0.5rem;
+        }
+        .btn-submit:hover { background: #8b3d23; }
+        
+        .map-placeholder {
+            background: #e6d9cd; height: 200px; border-radius: 2rem; margin-top: 3rem;
+            display: flex; align-items: center; justify-content: center; color: #6f5b4b;
+        }
+        
+        footer { text-align: center; padding: 2rem 0; border-top: 1px solid #eedbcb; color: #856b58; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><a href="index.html">✦ 漫画堂 · MangaDO</a></div>
+            <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="about.html">À propos</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="section-sub">Vous avez un projet manga, une question ou envie de parler de votre série préférée ?</div>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Passons au trait suivant</h3>
+                    <p>Que vous soyez mangaka amateur, collectionneur ou simplement curieux, écrivez-nous !</p>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <span>bonjour@mangado.fr</span>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+33 9 87 65 43 21</span>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-pin"></i>
+                        <span>49 rue des Manga, 69003 Lyon</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="#" method="post">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" placeholder="Prénom" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Nom" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="email" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Ton personnage préféré (optionnel)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="5" placeholder="Parle-nous de ton projet ou de ta question..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="map-placeholder">
+                <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-right: 1rem;"></i> 
+                <span>Nous sommes situés à Lyon, près de la gare Part-Dieu</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>🍜 MangaDO – la culture manga dans toute sa diversité. © 2025</p>
+        </div>
+    </footer>
+</body>
+</html>
