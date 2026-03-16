@@ -1,82 +1,205 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MangaDO · Services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Serif+JP:wght@400;500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: #faf7f2; color: #2a2c2e; line-height: 1.5; }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf7f2;
+            color: #2a2c2e;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         .navbar {
-            position: sticky; top: 0; background: rgba(250, 247, 242, 0.85); backdrop-filter: blur(12px);
-            border-bottom: 1px solid #eedac8; z-index: 100;
+            position: sticky;
+            top: 0;
+            background: rgba(250, 247, 242, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #eedac8;
+            z-index: 100;
         }
+
         .nav-container {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 1rem 2rem; max-width: 1280px; margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
         }
+
         .logo a {
-            font-size: 1.9rem; font-weight: 700; text-decoration: none;
-            background: linear-gradient(145deg, #b25030, #7a3e2a); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-size: 1.9rem;
+            font-weight: 700;
+            text-decoration: none;
+            background: linear-gradient(145deg, #b25030, #7a3e2a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-family: 'Noto Serif JP', serif;
         }
-        .nav-links { display: flex; gap: 2.8rem; }
+
+        .nav-links {
+            display: flex;
+            gap: 2.8rem;
+        }
+
         .nav-links a {
-            text-decoration: none; font-weight: 500; color: #4d3b30; transition: color 0.2s;
-            border-bottom: 2px solid transparent; padding-bottom: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            color: #4d3b30;
+            transition: color 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
         }
-        .nav-links a:hover { color: #c4451e; border-bottom-color: #c4451e; }
-        .nav-links a.active { color: #b25030; border-bottom-color: #b25030; }
-        
-        section { padding: 5rem 0; }
+
+        .nav-links a:hover {
+            color: #c4451e;
+            border-bottom-color: #c4451e;
+        }
+
+        .nav-links a.active {
+            color: #b25030;
+            border-bottom-color: #b25030;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
         .section-title {
-            font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: #2c1f18;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c1f18;
             font-family: 'Noto Serif JP', serif;
         }
-        .section-sub { font-size: 1.12rem; color: #6f5b4b; max-width: 680px; margin-bottom: 3rem; }
-        
-        .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;
+
+        .section-sub {
+            font-size: 1.12rem;
+            color: #6f5b4b;
+            max-width: 680px;
+            margin-bottom: 3rem;
         }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
         .service-item {
-            background: #fffcf7; border-radius: 2rem; padding: 2.2rem; border: 1px solid #eed7c5;
+            background: #fffcf7;
+            border-radius: 2rem;
+            padding: 2.2rem;
+            border: 1px solid #eed7c5;
             transition: 0.3s;
         }
-        .service-item:hover { transform: translateY(-5px); border-color: #c97e5b; box-shadow: 0 15px 30px -10px #b37a5d; }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            border-color: #c97e5b;
+            box-shadow: 0 15px 30px -10px #b37a5d;
+        }
+
         .service-icon {
-            background: #fbe5d6; width: 70px; height: 70px; border-radius: 30px;
-            display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;
+            background: #fbe5d6;
+            width: 70px;
+            height: 70px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
         }
-        .service-icon i { font-size: 2.3rem; color: #b25030; }
-        .service-item h3 { font-size: 1.7rem; margin-bottom: 0.8rem; font-family: 'Noto Serif JP', serif; }
-        .service-item p { color: #604d3d; margin-bottom: 1.5rem; }
+
+        .service-icon i {
+            font-size: 2.3rem;
+            color: #b25030;
+        }
+
+        .service-item h3 {
+            font-size: 1.7rem;
+            margin-bottom: 0.8rem;
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .service-item p {
+            color: #604d3d;
+            margin-bottom: 1.5rem;
+        }
+
         .badge {
-            display: inline-block; background: #edd0ba; color: #602f19; padding: 0.3rem 1.2rem;
-            border-radius: 40px; font-weight: 600; font-size: 0.9rem;
+            display: inline-block;
+            background: #edd0ba;
+            color: #602f19;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
-        
+
         .cta-banner {
-            background: #b25030; color: white; padding: 3rem; border-radius: 3rem; margin-top: 4rem;
+            background: #b25030;
+            color: white;
+            padding: 3rem;
+            border-radius: 3rem;
+            margin-top: 4rem;
             text-align: center;
         }
-        .cta-banner h3 { font-size: 2rem; margin-bottom: 1rem; }
-        .cta-banner .btn { background: white; color: #b25030; padding: 1rem 2.5rem; border-radius: 40px; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 1rem; }
-        
-        footer { text-align: center; padding: 2rem 0; border-top: 1px solid #eedbcb; color: #856b58; }
+
+        .cta-banner h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-banner .btn {
+            background: white;
+            color: #b25030;
+            padding: 1rem 2.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #eedbcb;
+            color: #856b58;
+        }
     </style>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo"><a href="index.html">✦ 漫画堂 · MangaDO</a></div>
             <div class="nav-links">
                 <a href="index.html">Accueil</a>
+                <a href="genres.html">Genres</a>
                 <a href="about.html">À propos</a>
                 <a href="services.html" class="active">Services</a>
                 <a href="contact.html">Contact</a>
@@ -87,8 +210,9 @@
     <section>
         <div class="container">
             <h2 class="section-title">Services & solutions</h2>
-            <div class="section-sub">Des offres concrètes pour les créateurs, les collectionneurs et les passionnés.</div>
-            
+            <div class="section-sub">Des offres concrètes pour les créateurs, les collectionneurs et les passionnés.
+            </div>
+
             <div class="services-grid">
                 <div class="service-item">
                     <div class="service-icon"><i class="fas fa-marker"></i></div>
@@ -127,7 +251,7 @@
                     <span class="badge">e-learning</span>
                 </div>
             </div>
-            
+
             <div class="cta-banner">
                 <h3>Vous avez un projet en tête ?</h3>
                 <p>Que vous soyez amateur ou confirmé, parlons-en autour d'un thé matcha.</p>
@@ -138,8 +262,9 @@
 
     <footer>
         <div class="container">
-            <p>🍜 MangaDO – la culture manga dans toute sa diversité. © 2025</p>
+            <p>🍜 MangaDO – la culture manga dans toute sa diversité. © 2026</p>
         </div>
     </footer>
 </body>
+
 </html>

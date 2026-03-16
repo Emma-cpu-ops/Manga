@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MangaDO · Genres manga</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Serif+JP:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf7f2;
+            color: #2a2c2e;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(250, 247, 242, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #eedac8;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .logo a {
+            font-size: 1.9rem;
+            font-weight: 700;
+            text-decoration: none;
+            background: linear-gradient(145deg, #b25030, #7a3e2a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.8rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #4d3b30;
+            transition: color 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a:hover {
+            color: #c4451e;
+            border-bottom-color: #c4451e;
+        }
+
+        .nav-links a.active {
+            color: #b25030;
+            border-bottom-color: #b25030;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c1f18;
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .section-sub {
+            font-size: 1.2rem;
+            color: #6f5b4b;
+            max-width: 800px;
+            margin-bottom: 3rem;
+        }
+
+        /* Grille des genres */
+        .genres-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .genre-card {
+            background: #fffcf7;
+            border-radius: 2.5rem;
+            overflow: hidden;
+            border: 1px solid #eed7c5;
+            transition: 0.3s;
+        }
+
+        .genre-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -10px #b37a5d;
+        }
+
+        .genre-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .genre-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, #fffcf7, transparent);
+        }
+
+
+        /* IMAGES MANGA - LIENS DIRECTS */
+        .shonen-img {
+            background-image: url('https://www.maisondelapresse.com/media/wysiwyg/liste-mangas-shonen-du-moment-672x345.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .seinen-img {
+            background-image: url('https://m.media-amazon.com/images/I/81CbOj4E-LL.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .shojo-img {
+            background-image: url('https://i.ebayimg.com/images/g/w0EAAOSwUYZj-it3/s-l1200.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .genre-content {
+            padding: 2rem;
+        }
+
+        .genre-content h2 {
+            font-size: 2.2rem;
+            font-family: 'Noto Serif JP', serif;
+            margin-bottom: 1rem;
+        }
+
+        .genre-content h2 i {
+            margin-right: 0.8rem;
+            color: #b25030;
+        }
+
+        .genre-content p {
+            color: #60493b;
+            margin-bottom: 1.5rem;
+        }
+
+        .example-list {
+            background: #f7ede3;
+            border-radius: 2rem;
+            padding: 1.5rem;
+        }
+
+        .example-list h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #b25030;
+        }
+
+        .example-list ul {
+            list-style: none;
+        }
+
+        .example-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .example-list i {
+            color: #c4451e;
+            width: 20px;
+        }
+
+        .comparison-table {
+            margin-top: 5rem;
+            background: #fffcf7;
+            border-radius: 2rem;
+            padding: 2.5rem;
+            border: 1px solid #eed7c5;
+        }
+
+        .comparison-table h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #b25030;
+            color: white;
+            padding: 1rem;
+            font-weight: 500;
+        }
+
+        td {
+            padding: 1.2rem;
+            border-bottom: 1px solid #eed7c5;
+        }
+
+        td:first-child {
+            font-weight: 600;
+            color: #b25030;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #eedbcb;
+            color: #856b58;
+        }
+
+        @media (max-width: 700px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .genres-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><a href="index.html">✦ 漫画堂 · MangaDO</a></div>
+            <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="genres.html" class="active">Genres</a>
+                <a href="about.html">À propos</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section>
+        <div class="container">
+            <h1 class="section-title">Les grands genres du manga</h1>
+            <p class="section-sub">Shōnen, seinen, shōjo... chaque style a son public, ses thèmes et son esthétique.
+                Découvrez leurs caractéristiques et nos recommandations.</p>
+
+            <div class="genres-grid">
+                <!-- SHONEN -->
+                <div class="genre-card">
+                    <div class="genre-image shonen-img"></div>
+                    <div class="genre-content">
+                        <h2><i class="fas fa-bolt"></i> Shōnen</h2>
+                        <p>Littéralement "jeune garçon" en japonais. Le shōnen cible principalement les adolescents
+                            masculins, mais séduit bien au-delà. Ses ingrédients : action, amitié, dépassement de soi.
+                        </p>
+
+                        <div class="example-list">
+                            <h4>📚 Œuvres emblématiques :</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Dragon Ball (Akira Toriyama)</li>
+                                <li><i class="fas fa-check"></i> One Piece (Eiichirō Oda)</li>
+                                <li><i class="fas fa-check"></i> Naruto (Masashi Kishimoto)</li>
+                                <li><i class="fas fa-check"></i> My Hero Academia (Kōhei Horikoshi)</li>
+                            </ul>
+                        </div>
+
+                        <p style="margin-top: 1.5rem;"><strong>Thèmes principaux :</strong> quête, rivalité, entraide,
+                            tournois, pouvoirs.</p>
+                    </div>
+                </div>
+
+                <!-- SEINEN -->
+                <div class="genre-card">
+                    <div class="genre-image seinen-img"></div>
+                    <div class="genre-content">
+                        <h2><i class="fas fa-brain"></i> Seinen</h2>
+                        <p>Destiné aux hommes adultes (à partir de 18-20 ans). Le seinen aborde des thèmes plus matures,
+                            psychologiques, politiques ou philosophiques, avec moins de contraintes éditoriales.</p>
+
+                        <div class="example-list">
+                            <h4>📚 Œuvres emblématiques :</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Berserk (Kentaro Miura)</li>
+                                <li><i class="fas fa-check"></i> Ghost in the Shell (Masamune Shirow)</li>
+                                <li><i class="fas fa-check"></i> Monster (Naoki Urasawa)</li>
+                                <li><i class="fas fa-check"></i> Vinland Saga (Makoto Yukimura)</li>
+                            </ul>
+                        </div>
+
+                        <p style="margin-top: 1.5rem;"><strong>Thèmes principaux :</strong> drame, politique, horreur,
+                            science-fiction, réflexion existentielle.</p>
+                    </div>
+                </div>
+
+                <!-- SHOJO -->
+                <div class="genre-card">
+                    <div class="genre-image shojo-img"></div>
+                    <div class="genre-content">
+                        <h2><i class="fas fa-heart"></i> Shōjo</h2>
+                        <p>Pour les jeunes filles, mais apprécié de tous. Le shōjo met l'accent sur les émotions, les
+                            relations, la romance et l'expression des sentiments, avec un graphisme souvent très
+                            élégant.</p>
+
+                        <div class="example-list">
+                            <h4>📚 Œuvres emblématiques :</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Sailor Moon (Naoko Takeuchi)</li>
+                                <li><i class="fas fa-check"></i> Nana (Ai Yazawa)</li>
+                                <li><i class="fas fa-check"></i> Fruits Basket (Natsuki Takaya)</li>
+                                <li><i class="fas fa-check"></i> Card Captor Sakura (CLAMP)</li>
+                            </ul>
+                        </div>
+
+                        <p style="margin-top: 1.5rem;"><strong>Thèmes principaux :</strong> romance, amitié, quête
+                            identitaire, vie scolaire, premiers émois.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau comparatif -->
+            <div class="comparison-table">
+                <h3>📊 Comparaison rapide</h3>
+                <table>
+                    <tr>
+                        <th>Critère</th>
+                        <th>Shōnen</th>
+                        <th>Seinen</th>
+                        <th>Shōjo</th>
+                    </tr>
+                    <tr>
+                        <td>Public cible</td>
+                        <td>Garçons 12-18 ans</td>
+                        <td>Hommes 18-40 ans</td>
+                        <td>Filles 12-18 ans</td>
+                    </tr>
+                    <tr>
+                        <td>Rythme</td>
+                        <td>Dynamique, combats</td>
+                        <td>Lent, psychologique</td>
+                        <td>Émotionnel, introspectif</td>
+                    </tr>
+                    <tr>
+                        <td>Dessin</td>
+                        <td>Expressif, dynamique</td>
+                        <td>Réaliste, détaillé</td>
+                        <td>Délicat, yeux expressifs</td>
+                    </tr>
+                    <tr>
+                        <td>Exemple phare</td>
+                        <td>One Piece</td>
+                        <td>Berserk</td>
+                        <td>Nana</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Autres genres avec icônes manga -->
+            <div style="margin-top: 4rem; background: #f7ede3; padding: 2rem; border-radius: 2rem;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #b25030;">📖 Les autres catégories</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                    <div style="background: white; padding: 1rem; border-radius: 1rem;">
+                        <i class="fas fa-child" style="font-size: 2rem; color: #b25030;"></i>
+                        <h4 style="margin: 0.5rem 0;">Kodomo</h4>
+                        <p>Pour les enfants : Doraemon, Pokémon, Hamtaro</p>
+                    </div>
+                    <div style="background: white; padding: 1rem; border-radius: 1rem;">
+                        <i class="fas fa-female" style="font-size: 2rem; color: #b25030;"></i>
+                        <h4 style="margin: 0.5rem 0;">Josei</h4>
+                        <p>Pour femmes adultes : Paradise Kiss, Nodame Cantabile</p>
+                    </div>
+                    <div style="background: white; padding: 1rem; border-radius: 1rem;">
+                        <i class="fas fa-skull" style="font-size: 2rem; color: #b25030;"></i>
+                        <h4 style="margin: 0.5rem 0;">Gekiga</h4>
+                        <p>Dramatique et réaliste : Golgo 13, Lone Wolf and Cub</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>🍜 MangaDO – la culture manga dans toute sa diversité. © 2025</p>
+        </div>
+    </footer>
+</body>
+
+</html>

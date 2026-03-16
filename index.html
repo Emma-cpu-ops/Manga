@@ -1,85 +1,222 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MangaDO · Accueil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Serif+JP:wght@400;500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: #faf7f2; color: #2a2c2e; line-height: 1.5; }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf7f2;
+            color: #2a2c2e;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         .navbar {
-            position: sticky; top: 0; background: rgba(250, 247, 242, 0.85); backdrop-filter: blur(12px);
-            border-bottom: 1px solid #eedac8; z-index: 100;
+            position: sticky;
+            top: 0;
+            background: rgba(250, 247, 242, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #eedac8;
+            z-index: 100;
         }
+
         .nav-container {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 1rem 2rem; max-width: 1280px; margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
         }
+
         .logo a {
-            font-size: 1.9rem; font-weight: 700; text-decoration: none;
-            background: linear-gradient(145deg, #b25030, #7a3e2a); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-size: 1.9rem;
+            font-weight: 700;
+            text-decoration: none;
+            background: linear-gradient(145deg, #b25030, #7a3e2a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-family: 'Noto Serif JP', serif;
         }
-        .nav-links { display: flex; gap: 2.8rem; }
+
+        .nav-links {
+            display: flex;
+            gap: 2.8rem;
+        }
+
         .nav-links a {
-            text-decoration: none; font-weight: 500; color: #4d3b30; transition: color 0.2s;
-            border-bottom: 2px solid transparent; padding-bottom: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            color: #4d3b30;
+            transition: color 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
         }
-        .nav-links a:hover { color: #c4451e; border-bottom-color: #c4451e; }
-        .nav-links a.active { color: #b25030; border-bottom-color: #b25030; }
-        
-        section { padding: 5rem 0; }
+
+        .nav-links a:hover {
+            color: #c4451e;
+            border-bottom-color: #c4451e;
+        }
+
+        .nav-links a.active {
+            color: #b25030;
+            border-bottom-color: #b25030;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
         .hero {
-            display: flex; align-items: center; flex-wrap: wrap; gap: 3rem; min-height: 70vh;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            min-height: 70vh;
         }
-        .hero-content { flex: 1 1 450px; }
+
+        .hero-content {
+            flex: 1 1 450px;
+        }
+
         .hero-content h1 {
-            font-size: 3.4rem; font-weight: 700; line-height: 1.1; color: #281f19; margin-bottom: 1.2rem;
+            font-size: 3.4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: #281f19;
+            margin-bottom: 1.2rem;
         }
-        .hero-content .accent { color: #c4451e; border-bottom: 3px solid #f0c2a8; }
-        .hero-content p { font-size: 1.2rem; color: #5f4d3d; max-width: 540px; margin-bottom: 2rem; }
-        .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
-        .btn-primary, .btn-outline {
-            display: inline-block; padding: 0.9rem 2.2rem; border-radius: 40px; font-weight: 600;
-            text-decoration: none; transition: all 0.25s; font-size: 1rem;
+
+        .hero-content .accent {
+            color: #c4451e;
+            border-bottom: 3px solid #f0c2a8;
         }
-        .btn-primary { background: #b25030; color: white; box-shadow: 0 8px 16px -6px #b2503060; }
-        .btn-primary:hover { background: #8b3d23; transform: scale(1.02); }
-        .btn-outline { border: 1.5px solid #d9b7a0; color: #3f2e23; }
-        .btn-outline:hover { border-color: #b25030; background: #fff2e9; }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #5f4d3d;
+            max-width: 540px;
+            margin-bottom: 2rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary,
+        .btn-outline {
+            display: inline-block;
+            padding: 0.9rem 2.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #b25030;
+            color: white;
+            box-shadow: 0 8px 16px -6px #b2503060;
+        }
+
+        .btn-primary:hover {
+            background: #8b3d23;
+            transform: scale(1.02);
+        }
+
+        .btn-outline {
+            border: 1.5px solid #d9b7a0;
+            color: #3f2e23;
+        }
+
+        .btn-outline:hover {
+            border-color: #b25030;
+            background: #fff2e9;
+        }
+
         .hero-visual {
-            flex: 1 1 350px; background: radial-gradient(circle at 30% 40%, #fadcc9, #edc9b3);
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; min-height: 320px;
-            display: flex; align-items: center; justify-content: center;
+            flex: 1 1 350px;
+            background: radial-gradient(circle at 30% 40%, #fadcc9, #edc9b3);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border: 3px dashed #b87b5e30;
         }
-        .hero-visual i { font-size: 7rem; color: #8f4e31; opacity: 0.9; }
-        
+
+        .hero-visual i {
+            font-size: 7rem;
+            color: #8f4e31;
+            opacity: 0.9;
+        }
+
         .features {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 4rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
         }
+
         .feature-card {
-            background: #fffcf7; padding: 2rem; border-radius: 2rem; border: 1px solid #eed7c5;
-            text-align: center; transition: 0.3s;
+            background: #fffcf7;
+            padding: 2rem;
+            border-radius: 2rem;
+            border: 1px solid #eed7c5;
+            text-align: center;
+            transition: 0.3s;
         }
-        .feature-card:hover { transform: translateY(-5px); border-color: #c97e5b; }
-        .feature-card i { font-size: 2.5rem; color: #c4451e; margin-bottom: 1rem; }
-        
-        footer { text-align: center; padding: 2rem 0; border-top: 1px solid #eedbcb; color: #856b58; }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #c97e5b;
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: #c4451e;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #eedbcb;
+            color: #856b58;
+        }
     </style>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo"><a href="index.html">✦ 漫画堂 · MangaDO</a></div>
             <div class="nav-links">
                 <a href="index.html" class="active">Accueil</a>
+                <a href="genres.html">Genres</a>
                 <a href="about.html">À propos</a>
                 <a href="services.html">Services</a>
                 <a href="contact.html">Contact</a>
@@ -91,7 +228,8 @@
         <div class="container hero">
             <div class="hero-content">
                 <h1>Vivez votre <span class="accent">histoire</span> en manga</h1>
-                <p>Passionné de shōnen, seinen ou shojo ? Découvrez une librairie et un studio dédiés au 9e art japonais.</p>
+                <p>Passionné de shōnen, seinen ou shojo ? Découvrez une librairie et un studio dédiés au 9e art
+                    japonais.</p>
                 <div class="btn-group">
                     <a href="contact.html" class="btn-primary"> Commander un dessin</a>
                     <a href="services.html" class="btn-outline">Nos offres</a>
@@ -101,7 +239,7 @@
                 <i class="fas fa-dragon"></i>
             </div>
         </div>
-        
+
         <div class="container">
             <div class="features">
                 <div class="feature-card">
@@ -125,8 +263,9 @@
 
     <footer>
         <div class="container">
-            <p>🍜 MangaDO – la culture manga dans toute sa diversité. © 2025</p>
+            <p>🍜 MangaDO – la culture manga dans toute sa diversité. © 2026</p>
         </div>
     </footer>
 </body>
+
 </html>
